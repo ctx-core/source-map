@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/source-map",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Extensions to source-map...like sourcemap_writable_stream_",
 	"type": "module",
 	"keywords": [
@@ -40,7 +40,6 @@
 	},
 	"dependencies": {
 		"ctx-core": "^5.19.1",
-		"picocolors": "^1.0.0",
 		"source-map": "^0.7.4"
 	},
 	"devDependencies": {
