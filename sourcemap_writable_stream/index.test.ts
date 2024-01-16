@@ -25,11 +25,6 @@ error: test error
 
 	`.trim()
 	const write_stream_out_a:string[] = []
-	const write_stream = new Writable()
-	write_stream.write = (str:string)=>{
-		write_stream_out_a.push(str)
-		return true
-	}
 	await new ReadableStream({
 		start(controller) {
 			controller.enqueue(stderr_text)
@@ -37,7 +32,8 @@ error: test error
 		}
 	})
 		.pipeThrough(new TextEncoderStream())
-		.pipeTo(sourcemap_writable_stream_(write_stream))
+		.pipeTo(sourcemap_writable_stream_(
+			str=>write_stream_out_a.push(str)))
 	await sleep(100)
 	equal(write_stream_out_a.join(''), `
 server__build|watch

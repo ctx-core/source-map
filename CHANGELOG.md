@@ -1,5 +1,11 @@
 # @ctx-core/source-map
 
+## 0.2.0
+
+### Minor Changes
+
+- sourcemap*writable_stream*: arguments: write_stream→write:(str:string)=>(unknown|Promise<unknown>)
+
 ## 0.1.3
 
 ### Patch Changes

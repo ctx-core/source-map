@@ -1,3 +1,4 @@
 /// <reference lib="dom" />
-import type { Writable } from 'node:stream'
-export function sourcemap_writable_stream_(write_stream:Writable):WritableStream
+export function sourcemap_writable_stream_(
+	write:(str:string)=>(unknown|Promise<unknown>)
+):WritableStream

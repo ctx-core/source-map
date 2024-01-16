@@ -3,7 +3,12 @@ import { TextDecoderStream } from 'ctx-core/stream'
 import { line__transform_stream_ } from 'ctx-core/string'
 import { readFile } from 'node:fs/promises'
 import { SourceMapConsumer } from 'source-map'
-export function sourcemap_writable_stream_(write_stream) {
+/**
+ * @param {(str:string)=>(unknown|Promise<unknown>)}write
+ * @returns {WritableStream<any>}
+ * @private
+ */
+export function sourcemap_writable_stream_(write) {
 	let outstream_controller
 	const path_R_SourceMapConsumer = {}
 	new ReadableStream({
@@ -18,7 +23,7 @@ export function sourcemap_writable_stream_(write_stream) {
 				const match =
 					stream_line.match(/^\s+at ([^(]+ )?\(?(.*):(.*):([^)]*)\)?/)
 				if (!match) {
-					write_stream.write(stream_line + '\n')
+					await write(stream_line + '\n')
 					return
 				}
 				const [
@@ -29,7 +34,7 @@ export function sourcemap_writable_stream_(write_stream) {
 					column_str
 				] = match
 				if (!path || !await file_exists_(path + '.map')) {
-					write_stream.write(stream_line + '\n')
+					await write(stream_line + '\n')
 					return
 				}
 				const methodName = methodName_match ? methodName_match.trim() : ''
@@ -41,12 +46,12 @@ export function sourcemap_writable_stream_(write_stream) {
 							JSON.parse(
 								await readFile(path + '.map').then(buf=>'' + buf)))
 					if (line == null || line < 1) {
-						write_stream.write('    ' + (methodName || '[unknown]') + '\n')
+						await write('    ' + (methodName || '[unknown]') + '\n')
 					} else {
 						const pos =
 							smc.originalPositionFor({ line, column })
 						if (pos && pos.line != null) {
-							write_stream.write(
+							await write(
 								'    at '
 								+ (pos.name || methodName || '[unknown]')
 								+ ' (' + pos.source + ':' + pos.line + ':' + pos.column + ')\n')
@@ -54,7 +59,7 @@ export function sourcemap_writable_stream_(write_stream) {
 					}
 				} catch (err) {
 					console.error(err)
-					write_stream.write('    at FAILED_TO_PARSE_LINE\n')
+					await write('    at FAILED_TO_PARSE_LINE\n')
 				}
 			}
 		}))
