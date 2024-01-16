@@ -18,7 +18,7 @@ export function sourcemap_writable_stream_(write_stream) {
 				const match =
 					stream_line.match(/^\s+at ([^(]+ )?\(?(.*):(.*):([^)]*)\)?/)
 				if (!match) {
-					write_stream.write(stream_line)
+					write_stream.write(stream_line + '\n')
 					return
 				}
 				const [
@@ -29,7 +29,7 @@ export function sourcemap_writable_stream_(write_stream) {
 					column_str
 				] = match
 				if (!path || !await file_exists_(path + '.map')) {
-					write_stream.write(stream_line)
+					write_stream.write(stream_line + '\n')
 					return
 				}
 				const methodName = methodName_match ? methodName_match.trim() : ''
@@ -41,7 +41,7 @@ export function sourcemap_writable_stream_(write_stream) {
 							JSON.parse(
 								await readFile(path + '.map').then(buf=>'' + buf)))
 					if (line == null || line < 1) {
-						write_stream.write('    ' + (methodName || '[unknown]'))
+						write_stream.write('    ' + (methodName || '[unknown]') + '\n')
 					} else {
 						const pos =
 							smc.originalPositionFor({ line, column })
@@ -49,12 +49,12 @@ export function sourcemap_writable_stream_(write_stream) {
 							write_stream.write(
 								'    at '
 								+ (pos.name || methodName || '[unknown]')
-								+ ' (' + pos.source + ':' + pos.line + ':' + pos.column + ')')
+								+ ' (' + pos.source + ':' + pos.line + ':' + pos.column + ')\n')
 						}
 					}
 				} catch (err) {
 					console.error(err)
-					write_stream.write('    at FAILED_TO_PARSE_LINE')
+					write_stream.write('    at FAILED_TO_PARSE_LINE\n')
 				}
 			}
 		}))

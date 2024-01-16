@@ -39,7 +39,7 @@ error: test error
 		.pipeThrough(new TextEncoderStream())
 		.pipeTo(sourcemap_writable_stream_(write_stream))
 	await sleep(100)
-	equal(write_stream_out_a.join('\n'), `
+	equal(write_stream_out_a.join(''), `
 server__build|watch
 browser__build|watch
 server started on port 3000
@@ -54,6 +54,6 @@ http://localhost:3000/
 error: test error
     at [unknown] (../../src/app/index.server.ts:8:9)
       at processTicksAndRejections (:61:77)
-	`.trim())
+	`.trim() + '\n')
 })
 test.run()

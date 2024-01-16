@@ -1,5 +1,11 @@
 # @ctx-core/source-map
 
+## 0.1.2
+
+### Patch Changes
+
+- sourcemap*writable_stream*: fix: new lines
+
 ## 0.1.1
 
 ### Patch Changes
