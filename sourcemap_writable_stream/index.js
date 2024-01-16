@@ -1,4 +1,5 @@
 import { file_exists_ } from 'ctx-core/fs'
+import { TextDecoderStream } from 'ctx-core/stream'
 import { line__transform_stream_ } from 'ctx-core/string'
 import { readFile } from 'node:fs/promises'
 import { SourceMapConsumer } from 'source-map'

@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/source-map",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Extensions to source-map...like sourcemap_writable_stream_",
 	"type": "module",
 	"keywords": [
