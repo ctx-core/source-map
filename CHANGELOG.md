@@ -1,5 +1,11 @@
 # @ctx-core/source-map
 
+## 0.2.15
+
+### Patch Changes
+
+- ctx-core: ^5.25.5 -> ^5.26.0
+
 ## 0.2.14
 
 ### Patch Changes
