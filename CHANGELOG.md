@@ -1,5 +1,13 @@
 # @ctx-core/source-map
 
+## 0.2.18
+
+### Patch Changes
+
+- ctx-core: ^5.27.2 -> ^5.28.0
+- Updated dependencies
+  - ctx-core@5.28.1
+
 ## 0.2.17
 
 ### Patch Changes
