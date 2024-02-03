@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/source-map",
-	"version": "0.2.35",
+	"version": "0.2.36",
 	"description": "Extensions to source-map...like sourcemap_writable_stream_",
 	"type": "module",
 	"keywords": [
@@ -39,7 +39,7 @@
 		"test:unit:coverage": "c8 pnpm test:unit"
 	},
 	"dependencies": {
-		"ctx-core": "^5.36.4",
+		"ctx-core": "^5.37.0",
 		"source-map": "^0.7.4"
 	},
 	"devDependencies": {
