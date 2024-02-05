@@ -58,8 +58,7 @@ export function sourcemap_writable_stream_(write) {
 						}
 					}
 				} catch (err) {
-					console.error(err)
-					await write('    at FAILED_TO_PARSE_LINE\n')
+					await write(stream_line + '\n')
 				}
 			}
 		}))

@@ -1,6 +1,5 @@
 /// <reference lib="dom" />
 import { sleep } from 'ctx-core/function'
-import { Writable } from 'node:stream'
 import { dirname, join, resolve } from 'path'
 import { test } from 'uvu'
 import { equal } from 'uvu/assert'

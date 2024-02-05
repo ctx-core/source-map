@@ -1,5 +1,13 @@
 # @ctx-core/source-map
 
+## 0.2.38
+
+### Patch Changes
+
+- sourcemap*writable_stream*: fix: errors processing source map result with writing the original error stack trace line to the console
+- Updated dependencies
+  - ctx-core@5.38.1
+
 ## 0.2.37
 
 ### Patch Changes
