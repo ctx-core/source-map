@@ -1,5 +1,11 @@
 # @ctx-core/source-map
 
+## 0.2.39
+
+### Patch Changes
+
+- ctx-core: ^5.38.1 -> ^5.38.2
+
 ## 0.2.38
 
 ### Patch Changes
