@@ -1,5 +1,13 @@
 # @ctx-core/source-map
 
+## 0.2.66
+
+### Patch Changes
+
+- package.json: author: url,email
+- Updated dependencies
+  - ctx-core@6.6.1
+
 ## 0.2.65
 
 ### Patch Changes
