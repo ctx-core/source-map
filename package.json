@@ -1,6 +1,6 @@
 {
 	"name": "@ctx-core/source-map",
-	"version": "0.2.109",
+	"version": "0.2.110",
 	"description": "Extensions to source-map...like sourcemap_writable_stream_",
 	"type": "module",
 	"keywords": [
@@ -43,13 +43,13 @@
 		"disable:test:unit:coverage": "c8 pnpm test:unit"
 	},
 	"dependencies": {
-		"ctx-core": "^7.2.26",
+		"ctx-core": "^7.2.27",
 		"source-map": "^0.7.4"
 	},
 	"devDependencies": {
 		"c8": "^10.1.2",
 		"check-dts": "^0.8.0",
-		"tsx": "^4.16.0",
+		"tsx": "^4.16.2",
 		"typescript": "next",
 		"uvu": "^0.5.6"
 	},
