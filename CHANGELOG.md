@@ -1,5 +1,13 @@
 # @ctx-core/source-map
 
+## 0.2.117
+
+### Patch Changes
+
+- chore: migrate scripts from pnpm to bun
+- Updated dependencies
+  - ctx-core@7.2.34
+
 ## 0.2.116
 
 ### Patch Changes
